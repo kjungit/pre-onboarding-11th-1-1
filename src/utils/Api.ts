@@ -1,5 +1,26 @@
 import axios from 'axios';
 
+interface ITodo {
+  todo: string;
+  isCompleted: boolean;
+}
+
+interface CreateResponse {
+  id: number;
+  isCompleted: boolean;
+  todo: string;
+  userId: number;
+}
+
+interface IAuth {
+  email: string;
+  password: string;
+}
+
+interface IToken {
+  access_token: string;
+}
+
 export const API = axios.create({
   baseURL: 'https://www.pre-onboarding-selection-task.shop',
   headers: {
@@ -21,50 +42,40 @@ API.interceptors.request.use(
   },
 );
 
-interface ITodo {
-  todo: string;
-}
-
 export class TodoAPI {
   static #TODOS = '/todos';
 
-  static async getTodos() {
+  static async get(): Promise<CreateResponse[]> {
     const { data } = await API.get(TodoAPI.#TODOS);
     return data;
   }
 
-  static async postTodo(todo: ITodo) {
+  static async post(todo: string): Promise<CreateResponse> {
     const { data } = await API.post(TodoAPI.#TODOS, todo);
     return data;
   }
 
-  static async putTodo(todo: ITodo, id: number) {
+  static async put(todo: ITodo, id: number): Promise<CreateResponse> {
     const { data } = await API.put(`${TodoAPI.#TODOS}/${id}`, todo);
     return data;
   }
 
-  static async deleteTodo(id: number) {
+  static async delete(id: number): Promise<string> {
     const { data } = await API.delete(`${TodoAPI.#TODOS}/${id}`);
     return data;
   }
 }
 
-interface IAuth {
-  email: string;
-  password: string;
-}
-
 export class AuthAPI {
-  static #SIGNUP = '/auth/signup';
-  static #SIGNIN = '/auth/signin';
+  static #AUTH = '/auth';
 
   static async signup(auth: IAuth) {
-    const { data } = await API.post(AuthAPI.#SIGNUP, auth);
+    const { data } = await API.post(`${AuthAPI.#AUTH}/signup`, auth);
     return data;
   }
 
-  static async signin(auth: IAuth) {
-    const { data } = await API.post(AuthAPI.#SIGNIN, auth);
+  static async signin(auth: IAuth): Promise<IToken> {
+    const { data } = await API.post(`${AuthAPI.#AUTH}/signin`, auth);
     return data;
   }
 }
