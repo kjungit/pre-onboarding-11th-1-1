@@ -1,9 +1,9 @@
 ---
 name: Refactor
 about: Refactor할 때 사용하는 템플릿
-title: "[Refactor] "
-labels: "♻️ refactor"
-assignees: ""
+title: '[Refactor] '
+labels: '♻️ refactor'
+assignees: ''
 ---
 
 ## Description

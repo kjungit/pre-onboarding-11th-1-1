@@ -1,9 +1,9 @@
 ---
 name: Fix
 about: 버그 fix 할 때 사용하는 템플릿
-title: "[Fix] "
+title: '[Fix] '
 labels: "\U0001F41B fix"
-assignees: ""
+assignees: ''
 ---
 
 ## Description

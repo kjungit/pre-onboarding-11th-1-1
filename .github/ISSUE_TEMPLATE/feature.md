@@ -1,9 +1,9 @@
 ---
 name: Feature
 about: 새로운 feature를 만들 때 사용 하는 템플릿
-title: "[Feature] "
-labels: "✨ feature"
-assignees: ""
+title: '[Feature] '
+labels: '✨ feature'
+assignees: ''
 ---
 
 ## Description
