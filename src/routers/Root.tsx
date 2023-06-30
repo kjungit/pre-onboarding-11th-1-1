@@ -5,10 +5,10 @@ import Footer from '../components/common/Footer';
 
 export function Root() {
   return (
-    <div>
+    <>
       <Header />
       <Outlet />
       <Footer />
-    </div>
+    </>
   );
 }
