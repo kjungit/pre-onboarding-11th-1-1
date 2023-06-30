@@ -1,7 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { removeAccessToken } from '../../utils/localStorage';
+import { getAccessToken, removeAccessToken } from '../../utils/localStorage';
 
-function Header({ isLogined }: { isLogined: boolean }) {
+function Header() {
+  const isLogined = getAccessToken();
   const navigate = useNavigate();
 
   const onClickHandler = () => {
