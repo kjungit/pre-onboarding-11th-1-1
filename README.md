@@ -41,7 +41,7 @@ $ npm start
 ## 🔗 사전 선발 과제
 | 이름   | GitHub Repository                                                                 |
 | ------ | --------------------------------------------------------------------------------- |
-|김범준|[@kjungit](https://github.com/kjungit/wanted-pre-onboarding-frontend)|
+|권범준|[@kjungit](https://github.com/kjungit/wanted-pre-onboarding-frontend)|
 |김현진|[@who0803](https://github.com/who0803/wanted-pre-onboarding-frontend)|
 |박희진|[@hihijin](https://github.com/hihijin/wanted-pre-onboarding-frontend)|
 |손수민|[@sonmansu](https://github.com/sonmansu/wanted-pre-onboarding-frontend)|
@@ -132,7 +132,7 @@ $ npm start
 <table>
   <tbody>
     <tr>
-      <td align="center"><a href="https://github.com/kjungit"><img src="https://avatars.githubusercontent.com/u/100064540?v=4" width="100px;" alt=""/><br /><sub><b>김범준(팀장)</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/kjungit"><img src="https://avatars.githubusercontent.com/u/100064540?v=4" width="100px;" alt=""/><br /><sub><b>권범준(팀장)</b></sub></a><br /></td>
       <td align="center"><a href="https://github.com/who0803"><img src="https://avatars.githubusercontent.com/u/65334125?v=4" width="100px;" alt=""/><br /><sub><b>김현진</b></sub></a><br /></td>
       <td align="center"><a href="https://github.com/hihijin"><img src="https://avatars.githubusercontent.com/u/117073214?v=4" width="100px;" alt=""/><br /><sub><b>박희진</b></sub></a><br /></td>
       <td align="center"><a href="https://github.com/sonmansu"><img src="https://avatars.githubusercontent.com/u/80534651?v=4" width="100px;" alt=""/><br /><sub><b>손수민</b></sub></a><br /></td>
