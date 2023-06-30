@@ -1,9 +1,16 @@
-# 원티드 프리온보딩 프론트엔드 인턴십 1주차 과제 
-> 동료학습을 통해서 팀에서 생각한 원티드 프리온보딩 프론트엔드 인턴십 선발 과제의 Best Pratice를 만들고 제출해주세요
+<div align="center">
+  <img width="470" alt="preonboarding" src="https://github.com/khkh0109/frontend-mentor-challenges/assets/77181642/1fc461e0-3112-4b89-8be9-d55858f1124b">
+</div>
 
+<div align="center">
+<h1>원티드 프리온보딩 프론트엔드 인턴십 1주차 과제 </h1>	
+
+> 동료학습을 통해서 팀에서 생각한 원티드 프리온보딩 프론트엔드 인턴십 선발 과제의 Best Pratice를 만들고 제출해주세요. <br/>
 > Best Practice란 모범사례라는 말로서, 특정 문제를 효과적으로 해결하기 위한 가장 성공적인 해결책 또는 방법론을 의미합니다.
 
 진행 기간: 2023.06.27 ~ 2023.06.30
+</div>
+
 
 <br/>
 
