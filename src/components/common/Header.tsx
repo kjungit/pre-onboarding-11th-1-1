@@ -7,18 +7,18 @@ function Header() {
 
   const handleLogout = () => {
     removeAccessToken();
-    if (isLogined) {
-      navigate('/login');
-    }
+    navigate('/login');
   };
 
   return (
     <header className='bg-black'>
       <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
         <div className='relative flex h-16 items-center justify-between '>
-          <h1 className='text-sm font-bold text-white sm:text-xl'>
-            wanted-pre-onboarding-frontend
-          </h1>
+          <Link to='/todo'>
+            <h1 className='text-sm font-bold text-white sm:text-xl'>
+              wanted-pre-onboarding-frontend
+            </h1>
+          </Link>
           {isLogined ? (
             <div>
               <button
