@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import AuthForm from '../components/common/AuthForm';
 import AuthInput from '../components/common/AuthInput';
 import { validateInput, isValidEmail } from '../utils/sign';
@@ -13,9 +13,7 @@ function JoinPage() {
     passwordError: '',
   });
   const [isDisabled, setIsDisabled] = useState(true);
-
-  // 라우터 완성시 연결
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -52,8 +50,7 @@ function JoinPage() {
 
     AuthAPI.signup(authInput)
       .then(() => {
-        console.log('회원가입');
-        // navigate("/login");
+        navigate('/login');
       })
       .catch((error) => {
         alert(error.response?.data.message);
@@ -87,11 +84,12 @@ function JoinPage() {
           />
         </AuthForm>
         <div>
-          <button
+          <Link
+            to='/login'
             className='mt-4 flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600'
           >
             로그인 페이지로 가기
-          </button>
+          </Link>
         </div>
       </div>
     </div>
