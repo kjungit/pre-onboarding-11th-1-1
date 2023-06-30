@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { Navigate, createBrowserRouter } from 'react-router-dom';
 import JoinPage from '../pages/JoinPage';
 import LoginPage from '../pages/LoginPage';
 import TodoPage from '../pages/TodoPage';
@@ -12,17 +12,21 @@ export const router = createBrowserRouter([
     element: <Root />,
     children: [
       {
-        path: '/join',
+        index: true,
+        element: <Navigate to='/todo' />,
+      },
+      {
+        path: 'join',
         element: <JoinPage />,
         loader: redirectTodo,
       },
       {
-        path: '/login',
+        path: 'login',
         element: <LoginPage />,
         loader: redirectTodo,
       },
       {
-        path: '/todo',
+        path: 'todo',
         element: <TodoPage />,
         loader: redirectLogin,
       },
