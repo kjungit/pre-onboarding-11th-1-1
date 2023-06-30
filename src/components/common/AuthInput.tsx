@@ -1,4 +1,3 @@
-import { useEffect, useRef } from 'react';
 import { AuthInputProps } from '../../types/common';
 
 function AuthInput({
@@ -8,14 +7,6 @@ function AuthInput({
   isFocus,
   onChangeInput,
 }: AuthInputProps) {
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (isFocus && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [isFocus]);
-
   return (
     <div>
       <div className='flex items-center justify-between'>
@@ -28,7 +19,7 @@ function AuthInput({
         <input
           name={type}
           type={type}
-          ref={inputRef}
+          autoFocus={isFocus}
           autoComplete={isAutoComplete}
           data-testid={`${type}-input`}
           onChange={onChangeInput}
