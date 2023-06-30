@@ -1,11 +1,10 @@
 import { FormEvent, useState } from 'react';
-import { TodoApi } from '../../apis/lib/todo';
 
 interface AddTodoProps {
-  fetchTodo: () => void;
+  addTodo: (todo: string) => void;
 }
 
-export default function AddTodo({ fetchTodo }: AddTodoProps) {
+export default function AddTodo({ addTodo }: AddTodoProps) {
   const [todo, setTodo] = useState('');
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,11 +13,8 @@ export default function AddTodo({ fetchTodo }: AddTodoProps) {
 
   const handleAddTodo = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    TodoApi.create(todo).then(() => {
-      // 투두 추가 후 부모에서 todo 목록을 다시 불러와야함
-      fetchTodo();
-    });
+    addTodo(todo);
+    setTodo('');
   };
 
   return (

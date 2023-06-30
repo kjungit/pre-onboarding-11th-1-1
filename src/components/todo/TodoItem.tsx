@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Todo } from '../../types/common';
 import { TodoApi } from '../../apis/lib/todo';
 
@@ -6,8 +6,8 @@ const buttonStyle =
   'flex-none rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-500';
 
 interface TodoItemProps extends Todo {
-  updateTodo: (updatedTodo: Todo) => void;
-  deleteTodo: (id: number) => void;
+  updateTodo(todo: Todo): Promise<void>;
+  deleteTodo(id: number): Promise<void>;
 }
 
 export default function TodoItem({
@@ -21,24 +21,8 @@ export default function TodoItem({
   const inputRef = useRef<HTMLInputElement>(null);
   const [modifiedTodo, setModifiedTodo] = useState(todo);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setModifiedTodo(event.currentTarget.value);
-  };
-
-  const handleClickSave = () => {
-    if (modifiedTodo === '') {
-      alert('입력 값이 없습니다.');
-      return;
-    }
-
-    // 기존과 값이 변경된 경우에만 api 호출
-    if (modifiedTodo !== todo) {
-      TodoApi.update(id, modifiedTodo, isCompleted).then((data) => {
-        updateTodo(data);
-      });
-    }
-
-    setIsOnModify(false);
   };
 
   const handleClickModify = () => {
@@ -50,17 +34,34 @@ export default function TodoItem({
     setModifiedTodo(todo);
   };
 
+  const handleClickSave = async () => {
+    if (modifiedTodo === '') {
+      alert('입력 값이 없습니다.');
+      return;
+    }
+    // 기존과 값이 변경된 경우에만 api 호출
+    if (modifiedTodo !== todo) {
+      await updateTodo({ id, todo: modifiedTodo, isCompleted });
+    }
+    setIsOnModify(false);
+  };
+
   const handleDelete = () => {
-    TodoApi.delete(id).then(() => {
-      deleteTodo(id);
-    });
+    deleteTodo(id);
   };
 
   const handleCheck = async () => {
+    updateTodo({ id, todo, isCompleted: !isCompleted });
     TodoApi.update(id, todo, !isCompleted).then((data) => {
       updateTodo(data);
     });
   };
+
+  useEffect(() => {
+    if (isOnModify) {
+      inputRef.current?.focus();
+    }
+  }, [isOnModify]);
 
   return (
     <li className='max-w flex flex-col items-center justify-between rounded-2xl border-2 p-4'>
@@ -122,7 +123,7 @@ export default function TodoItem({
             data-testid='modify-input'
             className='mt-3 w-full rounded-md bg-gray-200 p-2 text-black'
             defaultValue={todo}
-            onChange={handleChange}
+            onChange={handleChangeInput}
           />
         ) : (
           <p className='text-md mt-5 text-left leading-6 text-gray-600'>
