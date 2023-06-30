@@ -396,12 +396,12 @@ export const router = createBrowserRouter([
         element: <Navigate to='/todo' />,
       },
       {
-        path: 'join',
+        path: 'signup',
         element: <JoinPage />,
         loader: redirectTodo,
       },
       {
-        path: 'login',
+        path: 'signin',
         element: <LoginPage />,
         loader: redirectTodo,
       },
@@ -443,7 +443,7 @@ export const redirectPage = () => {
   const token = getAccessToken();
 
   if (token === null) {
-    return redirect('/login');
+    return redirect('/signin');
   } else {
     return redirect('/todo');
   }
@@ -453,7 +453,7 @@ export const redirectLogin = () => {
   const token = getAccessToken();
 
   if (token === null) {
-    return redirect('/login');
+    return redirect('/signin');
   }
 
   return null;
