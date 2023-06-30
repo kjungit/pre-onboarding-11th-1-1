@@ -1,17 +1,12 @@
-interface Response {
-  access_token: string;
-}
-
-export const getAccessToken = (key: string): string | null => {
-  const accessToken = localStorage.getItem(key);
+export const getAccessToken = (): string | null => {
+  const accessToken = localStorage.getItem('accessToken');
   return accessToken;
 };
 
-export const setAccessToken = (response: Response) => {
-  const { access_token } = response;
-  localStorage.setItem('accessToken', access_token);
+export const setAccessToken = (accessToken: string) => {
+  localStorage.setItem('accessToken', accessToken);
 };
 
-export const removeAccessToken = (key: string) => {
-  localStorage.removeItem(key);
+export const removeAccessToken = () => {
+  localStorage.removeItem('accessToken');
 };
