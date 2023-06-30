@@ -380,8 +380,9 @@ export class TodoAPI {
 <br/>
 
 ### 📌 createBrowserRouter
-- browserRouter와 차이점이라기 보다는 리액트에 새로운 개념들을 사용할 수 있고 많은 기능들이 추가되어 있음
-- loader, action 과 같은 비동기 동작들을 params로 전달하여 사용
+- 기존의 라우팅 기능보다 많은 기능들이 추가되어 있어 활용성이 높음
+- loader, action 등을 통해서 하위 컴포넌트로 데이터를 전달 가능
+- 경로가 많다면 가독성이 좋음
 
 #### 1. App.tsx 에서 RouterProvider 연결
 ```tsx
