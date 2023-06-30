@@ -5,6 +5,7 @@ import AuthInput from '../components/common/AuthInput';
 import { validateInput, isValidEmail } from '../utils/validation';
 import { AuthInputValue } from '../types/common';
 import { AuthAPI } from '../utils/api';
+import { PATH } from '../utils/constants';
 
 function JoinPage() {
   const [authInput, setAuthInput] = useState({ email: '', password: '' });
@@ -50,7 +51,7 @@ function JoinPage() {
 
     AuthAPI.signUp(authInput)
       .then(() => {
-        navigate('/login');
+        navigate(`/${PATH.signIn}`);
       })
       .catch((error) => {
         alert(error.response?.data.message);
@@ -85,7 +86,7 @@ function JoinPage() {
         </AuthForm>
         <div>
           <Link
-            to='/login'
+            to={`/${PATH.signIn}`}
             className='mt-4 flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600'
           >
             로그인 페이지로 가기
