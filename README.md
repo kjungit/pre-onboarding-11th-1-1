@@ -54,7 +54,7 @@
 <br/>
 
 ## 🔗 배포 링크
-https://pre-onboarding-11th-1-1.vercel.app/
+https://todolist-1-1.vercel.app/
 
 <br/>
 
