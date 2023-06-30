@@ -18,7 +18,7 @@ function LoginPage() {
   // 라우터 완성시 연결
   // const navigate = useNavigate();
 
-  const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setAuthInput({ ...authInput, [name]: value });
     const { error, isDisabled } = validateInput({
@@ -49,7 +49,7 @@ function LoginPage() {
     setIsDisabled(isDisabled);
   };
 
-  const authHandler = (event: React.FormEvent) => {
+  const handleAuth = (event: React.FormEvent) => {
     event.preventDefault();
 
     AuthAPI.signin(authInput)
@@ -71,21 +71,21 @@ function LoginPage() {
         <AuthForm
           isSignUp={false}
           isDisabled={isDisabled}
-          authHandler={authHandler}
+          authHandler={handleAuth}
         >
           <AuthInput
             type='email'
             isAutoComplete='on'
             error={formErrors.emailError}
             isFocus={true}
-            inputChangeHandler={inputChangeHandler}
+            inputChangeHandler={handleInputChange}
           />
           <AuthInput
             type='password'
             isAutoComplete='off'
             error={formErrors.passwordError}
             isFocus={false}
-            inputChangeHandler={inputChangeHandler}
+            inputChangeHandler={handleInputChange}
           />
         </AuthForm>
         <div>

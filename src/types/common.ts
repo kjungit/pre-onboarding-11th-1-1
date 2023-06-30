@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 
 export interface AuthInputValue {
-  // 사용
   email: string;
   password: string;
 }

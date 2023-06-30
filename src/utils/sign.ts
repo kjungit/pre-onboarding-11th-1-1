@@ -5,10 +5,7 @@ export const isValidEmail = (email: string) => {
   return emailPattern.test(email);
 };
 
-export const validateInput = ({
-  authInput,
-  validate,
-}: validateInputProps) => {
+export const validateInput = ({ authInput, validate }: validateInputProps) => {
   const error = validate(authInput);
 
   const isValid = () => {
@@ -20,8 +17,6 @@ export const validateInput = ({
 
   return {
     error,
-    isDisabled: !isValid()
-  }
-  // setFormErrors(error);
-  // setIsDisabled(!isValid());
+    isDisabled: !isValid(),
+  };
 };

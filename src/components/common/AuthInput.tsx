@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { AuthInputProps } from '../../types/common';
 
-function Input({
+function AuthInput({
   type,
   isAutoComplete,
   error,
@@ -42,4 +42,4 @@ function Input({
   );
 }
 
-export default Input;
+export default AuthInput;
