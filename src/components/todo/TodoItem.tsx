@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Todo } from '../../types/common';
-import { TodoApi } from '../../apis/lib/todo';
+import { TodoAPI } from '../../utils/api';
 
 const buttonStyle =
   'flex-none rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-500';
@@ -51,10 +51,8 @@ export default function TodoItem({
   };
 
   const handleCheck = async () => {
-    updateTodo({ id, todo, isCompleted: !isCompleted });
-    TodoApi.update(id, todo, !isCompleted).then((data) => {
-      updateTodo(data);
-    });
+    const updatedTodo = await TodoAPI.put(id, todo, !isCompleted);
+    updateTodo(updatedTodo);
   };
 
   useEffect(() => {
