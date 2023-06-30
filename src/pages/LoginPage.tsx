@@ -6,6 +6,7 @@ import { validateInput, isValidEmail } from '../utils/validation';
 import { AuthInputValue } from '../types/common';
 import { AuthAPI } from '../utils/api';
 import { setAccessToken } from '../utils/localStorage';
+import { PATH } from '../utils/constants';
 
 function LoginPage() {
   const [authInput, setAuthInput] = useState({ email: '', password: '' });
@@ -53,7 +54,7 @@ function LoginPage() {
     AuthAPI.signIn(authInput)
       .then(({ access_token }) => {
         setAccessToken(access_token);
-        navigate('/todo');
+        navigate(`/${PATH.todo}`);
       })
       .catch((error) => {
         alert(error.response?.data.message);
@@ -88,7 +89,7 @@ function LoginPage() {
         </AuthForm>
         <div>
           <Link
-            to='/join'
+            to={`/${PATH.signUp}`}
             className='mt-4 flex w-full justify-center rounded-md bg-black px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
           >
             회원가입 페이지로 가기
