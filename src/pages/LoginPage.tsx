@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import AuthForm from '../components/common/AuthForm';
 import AuthInput from '../components/common/AuthInput';
-import { validateInput, isValidEmail } from '../utils/sign';
+import { validateInput, isValidEmail } from '../utils/validation';
 import { AuthInputValue } from '../types/common';
 import { AuthAPI } from '../utils/api';
 import { setAccessToken } from '../utils/localStorage';
@@ -50,7 +50,7 @@ function LoginPage() {
   const handleAuth = (event: React.FormEvent) => {
     event.preventDefault();
 
-    AuthAPI.signin(authInput)
+    AuthAPI.signIn(authInput)
       .then(({ access_token }) => {
         setAccessToken(access_token);
         navigate('/todo');
@@ -69,21 +69,21 @@ function LoginPage() {
         <AuthForm
           isSignUp={false}
           isDisabled={isDisabled}
-          authHandler={handleAuth}
+          onSubmitForm={handleAuth}
         >
           <AuthInput
             type='email'
             isAutoComplete='on'
             error={formErrors.emailError}
             isFocus={true}
-            inputChangeHandler={handleInputChange}
+            onChangeInput={handleInputChange}
           />
           <AuthInput
             type='password'
             isAutoComplete='off'
             error={formErrors.passwordError}
             isFocus={false}
-            inputChangeHandler={handleInputChange}
+            onChangeInput={handleInputChange}
           />
         </AuthForm>
         <div>

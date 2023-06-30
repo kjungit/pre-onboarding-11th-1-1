@@ -5,7 +5,7 @@ function Header() {
   const isLogined = getAccessToken();
   const navigate = useNavigate();
 
-  const onClickHandler = () => {
+  const handleLogout = () => {
     removeAccessToken();
     if (isLogined) {
       navigate('/login');
@@ -22,7 +22,7 @@ function Header() {
           {isLogined ? (
             <div>
               <button
-                onClick={onClickHandler}
+                onClick={handleLogout}
                 className='nline-flex items-center justify-center rounded-md p-2 font-bold text-gray-200 hover:bg-gray-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white'
               >
                 로그아웃

@@ -2,30 +2,30 @@ import axios from 'axios';
 
 import { getAccessToken } from './localStorage';
 
-interface ITodoResponse {
+interface TodoResponse {
   id: number;
   isCompleted: boolean;
   todo: string;
   userId: number;
 }
 
-interface IAuth {
+interface Auth {
   email: string;
   password: string;
 }
 
-interface IToken {
+interface Token {
   access_token: string;
 }
 
-export const API = axios.create({
+export const axiosInstance = axios.create({
   baseURL: 'https://www.pre-onboarding-selection-task.shop',
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
-API.interceptors.request.use(
+axiosInstance.interceptors.request.use(
   (config) => {
     const accessToken = getAccessToken();
 
@@ -42,13 +42,13 @@ API.interceptors.request.use(
 export class TodoAPI {
   private static TODOS = '/todos';
 
-  static async get(): Promise<ITodoResponse[]> {
-    const { data } = await API.get(this.TODOS);
+  static async get(): Promise<TodoResponse[]> {
+    const { data } = await axiosInstance.get(this.TODOS);
     return data;
   }
 
-  static async post(todo: string): Promise<ITodoResponse> {
-    const { data } = await API.post(this.TODOS, { todo });
+  static async post(todo: string): Promise<TodoResponse> {
+    const { data } = await axiosInstance.post(this.TODOS, { todo });
     return data;
   }
 
@@ -56,8 +56,8 @@ export class TodoAPI {
     id: number,
     todo: string,
     isCompleted: boolean,
-  ): Promise<ITodoResponse> {
-    const { data } = await API.put(`${this.TODOS}/${id}`, {
+  ): Promise<TodoResponse> {
+    const { data } = await axiosInstance.put(`${this.TODOS}/${id}`, {
       todo,
       isCompleted,
     });
@@ -65,7 +65,7 @@ export class TodoAPI {
   }
 
   static async delete(id: number): Promise<string> {
-    const { data } = await API.delete(`${this.TODOS}/${id}`);
+    const { data } = await axiosInstance.delete(`${this.TODOS}/${id}`);
     return data;
   }
 }
@@ -73,13 +73,13 @@ export class TodoAPI {
 export class AuthAPI {
   private static AUTH = '/auth';
 
-  static async signup(auth: IAuth): Promise<string> {
-    const { data } = await API.post(`${this.AUTH}/signup`, auth);
+  static async signUp(auth: Auth): Promise<string> {
+    const { data } = await axiosInstance.post(`${this.AUTH}/signup`, auth);
     return data;
   }
 
-  static async signin(auth: IAuth): Promise<IToken> {
-    const { data } = await API.post(`${this.AUTH}/signin`, auth);
+  static async signIn(auth: Auth): Promise<Token> {
+    const { data } = await axiosInstance.post(`${this.AUTH}/signin`, auth);
     return data;
   }
 }

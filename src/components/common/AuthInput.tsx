@@ -6,7 +6,7 @@ function AuthInput({
   isAutoComplete,
   error,
   isFocus,
-  inputChangeHandler,
+  onChangeInput,
 }: AuthInputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -14,7 +14,7 @@ function AuthInput({
     if (isFocus && inputRef.current) {
       inputRef.current.focus();
     }
-  }, []);
+  }, [isFocus]);
 
   return (
     <div>
@@ -31,7 +31,7 @@ function AuthInput({
           ref={inputRef}
           autoComplete={isAutoComplete}
           data-testid={`${type}-input`}
-          onChange={inputChangeHandler}
+          onChange={onChangeInput}
           className='block w-full rounded-md border-2 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6'
         />
         <div className='mt-2 flex h-2 items-start text-xs text-red-700'>
