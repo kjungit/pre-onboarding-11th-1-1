@@ -1,23 +1,25 @@
-import { Link, redirect } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getAccessToken, removeAccessToken } from '../../utils/localStorage';
 
 function Header() {
-  const token = getAccessToken();
+  const isLogined = getAccessToken();
+  const navigate = useNavigate();
 
   const onClickHandler = () => {
-    // 로그아웃 처리 API
     removeAccessToken();
-    redirect('/login');
+    if (isLogined) {
+      navigate('/login');
+    }
   };
 
   return (
     <header className='bg-black'>
       <div className='mx-auto max-w-7xl px-2 sm:px-6 lg:px-8'>
         <div className='relative flex h-16 items-center justify-between '>
-          <h1 className='cursor-pointer text-sm font-bold text-white sm:text-xl'>
+          <h1 className='text-sm font-bold text-white sm:text-xl'>
             wanted-pre-onboarding-frontend
           </h1>
-          {token !== null ? (
+          {isLogined ? (
             <div>
               <button
                 onClick={onClickHandler}
