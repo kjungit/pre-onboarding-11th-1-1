@@ -1,11 +1,9 @@
 import React from 'react';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routers/Router';
 
 function App() {
-  return (
-    <div className='flex h-screen w-full flex-col items-center justify-center text-gray-800'>
-      <div className='mb-10 text-4xl font-bold'>404 Not Found</div>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
