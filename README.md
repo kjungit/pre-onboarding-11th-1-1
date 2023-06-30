@@ -25,7 +25,7 @@
 <br/>
 
 ## 🔗 배포 링크
-<!-- 링크 작성 -->
+https://pre-onboarding-11th-1-1.vercel.app/
 
 <br/>
 
