@@ -2,7 +2,7 @@ import { AuthFormProps } from '../../types/common';
 
 function AuthForm({
   isSignUp,
-  authHandler,
+  onSubmitForm,
   isDisabled,
   children,
 }: AuthFormProps) {
@@ -12,7 +12,7 @@ function AuthForm({
         className='space-y-6'
         action='#'
         method='POST'
-        onSubmit={authHandler}
+        onSubmit={onSubmitForm}
       >
         {children}
         <div>
