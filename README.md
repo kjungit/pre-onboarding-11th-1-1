@@ -11,7 +11,30 @@
 진행 기간: 2023.06.27 ~ 2023.06.30
 </div>
 
+<br/>
+<br/>
 
+<div align="center">
+<h2>😃 팀원</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://github.com/kjungit"><img src="https://avatars.githubusercontent.com/u/100064540?v=4" width="100px;" alt=""/><br /><sub><b>권범준(팀장)</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/who0803"><img src="https://avatars.githubusercontent.com/u/65334125?v=4" width="100px;" alt=""/><br /><sub><b>김현진</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/hihijin"><img src="https://avatars.githubusercontent.com/u/117073214?v=4" width="100px;" alt=""/><br /><sub><b>박희진</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/sonmansu"><img src="https://avatars.githubusercontent.com/u/80534651?v=4" width="100px;" alt=""/><br /><sub><b>손수민</b></sub></a><br /></td>
+     <tr/>
+     <td align="center"><a href="https://github.com/yoojiih"><img src="https://avatars.githubusercontent.com/u/33574807?v=4" width="100px;" alt=""/><br /><sub><b>유지현</b></sub></a><br /></td>
+     <td align="center"><a href="https://github.com/Boom0704"><img src="https://avatars.githubusercontent.com/u/126732752?v=4" width="100px;" alt=""/><br /><sub><b>전영범</b></sub></a><br /></td>
+     <td align="center"><a href="https://github.com/khkh0109"><img src="https://avatars.githubusercontent.com/u/77181642?v=4" width="100px;" alt=""/><br /><sub><b>태강희</b></sub></a><br /></td>
+     <tr/>
+  </tbody>
+</table>
+</div>
+
+<br/>
+<br/>
 <br/>
 
 ## 목차 
@@ -27,7 +50,6 @@
   - [기능 구현](#기능-구현)
   - [페이지](#페이지)
 - [👑 Best Practice](#-best-practice)
-- [😃 팀원](#-팀원)
 
 <br/>
 
@@ -121,9 +143,13 @@ $ npm start
 |**회원가입**|
 | --- |
 |![회원가입](https://github.com/khkh0109/frontend-mentor-challenges/assets/77181642/9c9a8120-7b5a-430e-a7ea-d83de3401eb1)|
+
 |**로그인**|
+| --- |
 |![로그인](https://github.com/khkh0109/frontend-mentor-challenges/assets/77181642/a6c68a93-31a5-44b7-a4d5-39ae565bdf6a)|
+
 |**Todo**|
+| --- |
 |![todo](https://github.com/khkh0109/frontend-mentor-challenges/assets/77181642/bade3616-3715-42f6-9542-87fcbd2f83f7)|
 
 
@@ -137,7 +163,7 @@ $ npm start
 2. 확장성 
 - 애플리케이션의 기능을 유연하게 확장하고 유지 관리할 수 있도록 작성
 3. 사용자 편의성 
-- 사용자들이 웹 또는 앱 인터페이스를 쉽게 이해하고 조작할 수 있도록
+- 사용자들이 웹 또는 앱 인터페이스를 쉽게 이해하고 조작할 수 있도록 설계
 
 ### 수행 방향 
 - Best Practice를 선정하기전 각자 구현한 코드를 설명하며 코드리뷰를 진행
@@ -447,19 +473,4 @@ export const redirectTodo = () => {
 
 <br/>
 
-## 😃 팀원
 
-<table>
-  <tbody>
-    <tr>
-      <td align="center"><a href="https://github.com/kjungit"><img src="https://avatars.githubusercontent.com/u/100064540?v=4" width="100px;" alt=""/><br /><sub><b>권범준(팀장)</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/who0803"><img src="https://avatars.githubusercontent.com/u/65334125?v=4" width="100px;" alt=""/><br /><sub><b>김현진</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/hihijin"><img src="https://avatars.githubusercontent.com/u/117073214?v=4" width="100px;" alt=""/><br /><sub><b>박희진</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/sonmansu"><img src="https://avatars.githubusercontent.com/u/80534651?v=4" width="100px;" alt=""/><br /><sub><b>손수민</b></sub></a><br /></td>
-     <tr/>
-     <td align="center"><a href="https://github.com/yoojiih"><img src="https://avatars.githubusercontent.com/u/33574807?v=4" width="100px;" alt=""/><br /><sub><b>유지현</b></sub></a><br /></td>
-     <td align="center"><a href="https://github.com/Boom0704"><img src="https://avatars.githubusercontent.com/u/126732752?v=4" width="100px;" alt=""/><br /><sub><b>전영범</b></sub></a><br /></td>
-     <td align="center"><a href="https://github.com/khkh0109"><img src="https://avatars.githubusercontent.com/u/77181642?v=4" width="100px;" alt=""/><br /><sub><b>태강희</b></sub></a><br /></td>
-     <tr/>
-  </tbody>
-</table>
