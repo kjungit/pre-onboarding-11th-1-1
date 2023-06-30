@@ -14,7 +14,7 @@ function AuthInput({
     if (isFocus && inputRef.current) {
       inputRef.current.focus();
     }
-  }, []);
+  }, [isFocus]);
 
   return (
     <div>
