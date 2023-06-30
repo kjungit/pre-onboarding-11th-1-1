@@ -28,7 +28,7 @@ function LoginPage() {
   const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setAuthInput({ ...authInput, [name]: value });
-    validateInput({
+    const { error, isDisabled } = validateInput({
       authInput: { ...authInput, [name]: value },
       validate: (values: AuthInputValue) => {
         const newFormErrors = { ...formErrors };
@@ -50,10 +50,10 @@ function LoginPage() {
           } else newFormErrors.passwordError = '';
         }
         return newFormErrors;
-      },
-      setFormErrors,
-      setIsDisabled,
+      }
     });
+    setFormErrors(error);
+    setIsDisabled(isDisabled);
   };
 
   return (

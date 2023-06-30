@@ -14,8 +14,6 @@ export interface FormErrors {
 export interface validateInputProps {
   authInput: AuthInputValue;
   validate: (values: AuthInputValue) => FormErrors;
-  setFormErrors: React.Dispatch<React.SetStateAction<FormErrors>>;
-  setIsDisabled: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface Token {

@@ -8,8 +8,6 @@ export const isValidEmail = (email: string) => {
 export const validateInput = ({
   authInput,
   validate,
-  setFormErrors,
-  setIsDisabled,
 }: validateInputProps) => {
   const error = validate(authInput);
 
@@ -20,6 +18,10 @@ export const validateInput = ({
     );
   };
 
-  setFormErrors(error);
-  setIsDisabled(!isValid());
+  return {
+    error,
+    isDisabled: !isValid()
+  }
+  // setFormErrors(error);
+  // setIsDisabled(!isValid());
 };
