@@ -1,11 +1,12 @@
 import { Link, redirect } from 'react-router-dom';
-import { getAccessToken } from '../../utils/localStorage';
+import { getAccessToken, removeAccessToken } from '../../utils/localStorage';
 
 function Header() {
   const token = getAccessToken();
 
   const onClickHandler = () => {
     // 로그아웃 처리 API
+    removeAccessToken();
     redirect('/login');
   };
 
