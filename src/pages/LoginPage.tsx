@@ -4,6 +4,8 @@ import AuthForm from '../components/common/AuthForm';
 import AuthInput from '../components/common/AuthInput';
 import { validateInput, isValidEmail } from '../utils/sign';
 import { AuthInputValue } from '../types/common';
+import { AuthAPI } from '../utils/api';
+import { setAccessToken } from '../utils/localStorage';
 
 function LoginPage() {
   const [authInput, setAuthInput] = useState({ email: '', password: '' });
@@ -15,15 +17,6 @@ function LoginPage() {
 
   // 라우터 완성시 연결
   // const navigate = useNavigate();
-  // const signUpNavigate = () => {
-  //   navigate('/signup');
-  // };
-
-  const authHandler = (event: React.FormEvent) => {
-    event.preventDefault();
-    console.log('로그인');
-    // 추후 api 연결 예정
-  };
 
   const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -50,10 +43,23 @@ function LoginPage() {
           } else newFormErrors.passwordError = '';
         }
         return newFormErrors;
-      }
+      },
     });
     setFormErrors(error);
     setIsDisabled(isDisabled);
+  };
+
+  const authHandler = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    AuthAPI.signin(authInput)
+      .then(({ access_token }) => {
+        setAccessToken(access_token);
+        // navigate("/todo");
+      })
+      .catch((error) => {
+        alert(error.response?.data.message);
+      })
   };
 
   return (
