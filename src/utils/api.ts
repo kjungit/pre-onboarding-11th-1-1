@@ -2,11 +2,6 @@ import axios from 'axios';
 
 import { getAccessToken } from './localStorage';
 
-interface ITodo {
-  todo: string;
-  isCompleted: boolean;
-}
-
 interface ITodoResponse {
   id: number;
   isCompleted: boolean;
@@ -53,12 +48,19 @@ export class TodoAPI {
   }
 
   static async post(todo: string): Promise<ITodoResponse> {
-    const { data } = await API.post(this.TODOS, todo);
+    const { data } = await API.post(this.TODOS, { todo });
     return data;
   }
 
-  static async put(todo: ITodo, id: number): Promise<ITodoResponse> {
-    const { data } = await API.put(`${this.TODOS}/${id}`, todo);
+  static async put(
+    id: number,
+    todo: string,
+    isCompleted: boolean,
+  ): Promise<ITodoResponse> {
+    const { data } = await API.put(`${this.TODOS}/${id}`, {
+      todo,
+      isCompleted,
+    });
     return data;
   }
 

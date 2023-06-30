@@ -1,4 +1,9 @@
 import { ReactNode } from 'react';
+export interface Todo {
+  id: number;
+  isCompleted: boolean;
+  todo: string;
+}
 
 export interface AuthInputValue {
   email: string;
