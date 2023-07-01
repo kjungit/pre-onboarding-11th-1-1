@@ -5,6 +5,7 @@ import TodoPage from '../pages/TodoPage';
 import NotFoundPage from '../pages/NotFoundPage';
 import { redirectLogin, redirectTodo } from './redirect';
 import { Root } from './Root';
+import { PATH } from '../utils/constants';
 
 export const router = createBrowserRouter([
   {
@@ -13,20 +14,20 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to='/todo' />,
+        element: <Navigate to={`/${PATH.todo}`} />,
       },
       {
-        path: 'join',
+        path: PATH.signUp,
         element: <JoinPage />,
         loader: redirectTodo,
       },
       {
-        path: 'login',
+        path: PATH.signIn,
         element: <LoginPage />,
         loader: redirectTodo,
       },
       {
-        path: 'todo',
+        path: PATH.todo,
         element: <TodoPage />,
         loader: redirectLogin,
       },

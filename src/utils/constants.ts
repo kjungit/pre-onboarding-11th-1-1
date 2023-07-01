@@ -1,1 +1,5 @@
-export const TOKEN = 'accessToken';
+export const PATH = {
+  signUp: 'signup',
+  signIn: 'signin',
+  todo: 'todo',
+} as const;

@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Todo } from '../../types/common';
-import { TodoAPI } from '../../utils/api';
 
 const buttonStyle =
   'flex-none rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-500';
@@ -18,8 +17,8 @@ export default function TodoItem({
   deleteTodo,
 }: TodoItemProps) {
   const [isOnModify, setIsOnModify] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
   const [modifiedTodo, setModifiedTodo] = useState(todo);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setModifiedTodo(event.currentTarget.value);
@@ -51,8 +50,7 @@ export default function TodoItem({
   };
 
   const handleCheck = async () => {
-    const updatedTodo = await TodoAPI.put(id, todo, !isCompleted);
-    updateTodo(updatedTodo);
+    updateTodo({ id, todo, isCompleted: !isCompleted });
   };
 
   useEffect(() => {

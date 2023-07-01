@@ -27,7 +27,7 @@ export interface Token {
 export interface AuthFormProps {
   isSignUp: boolean;
   isDisabled: boolean;
-  authHandler: (event: React.FormEvent) => void;
+  onSubmitForm: (event: React.FormEvent) => void;
   children: ReactNode;
 }
 
@@ -36,5 +36,5 @@ export interface AuthInputProps {
   isAutoComplete: 'on' | 'off';
   error: string;
   isFocus: boolean;
-  inputChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
